@@ -1,4 +1,4 @@
-package moviedb.entities
+package main.moviedb.entities
 //Movie class should include Title, Release Year, Runtime, Synopsis, Genre, Director, Actors, User Rating
 //Inherit Title, Synopsis, Genre and Actors from Media class
 

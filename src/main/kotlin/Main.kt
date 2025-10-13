@@ -1,9 +1,9 @@
-import moviedb.service.MovieDatabase
-import moviedb.service.impl.MovieDatabaseImpl
-import moviedb.entities.Movie
-import moviedb.entities.User
-import moviedb.entities.TVSeries
-import moviedb.entities.Episode
+import main.moviedb.service.MovieDatabase
+import main.moviedb.service.impl.MovieDatabaseImpl
+import main.moviedb.entities.Movie
+import main.moviedb.entities.User
+import main.moviedb.entities.TVSeries
+import main.moviedb.entities.Episode
 
 
 

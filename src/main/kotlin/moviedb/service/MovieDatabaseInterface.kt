@@ -1,5 +1,5 @@
-package moviedb.service
-import moviedb.entities.Media
+package main.moviedb.service
+import main.moviedb.entities.Media
 
 interface MovieDatabase {
     fun addMedia(media: Media)

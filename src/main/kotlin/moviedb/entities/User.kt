@@ -1,7 +1,7 @@
-package moviedb.entities
+package main.moviedb.entities
 
 
-import moviedb.service.UserActions
+import main.moviedb.service.UserActions
 
 class User(val username: String) : UserActions {
     val favourites: MutableList<Media> = mutableListOf()
