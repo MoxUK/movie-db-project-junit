@@ -43,20 +43,21 @@ User:
 
 <h3>Structure:</h3>
 
-MovieDB/<br> 
-├─ Entities<br>
-│  ├─ User<br>
-│  ├─ Media/<br>
-│  │  ├─ Movies/<br>
-│  │  └─ TV Series/<br>
-│  │     ├─ Season<br>
-│  │     └─ Episode<br>
-│  │<br>
-├─ Services/<br>
-│  ├─ Implementations/<br>
-│  │  └─ MovieDB Implementation<br>
-│  ├─ TV Series Actions (Interface)<br>
-│  └─ User Specific Actions (Interface)<br>
+```
+MovieDB/
+├─ Entities
+│  ├─ User
+│  ├─ Media/
+│  │  ├─ Movies/
+│  │  └─ TV Series/
+│  │     ├─ Season
+│  │     └─ Episode
+├─ Services/
+│  ├─ Implementations/
+│  │  └─ MovieDB Implementation
+│  ├─ TV Series Actions (Interface)
+│  └─ User Specific Actions (Interface)
+```
 
 <br>
 TODO:
