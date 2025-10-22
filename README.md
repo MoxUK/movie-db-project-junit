@@ -38,6 +38,7 @@ User:
     - Check if title is already on list
 - Remove title from user's favourite list
 - List all titles on a specific user's favourite list
+- Assign unique UserId to each created user
 - Update user rating of movie/TV series (TODO!)
 
 

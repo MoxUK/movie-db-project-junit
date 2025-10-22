@@ -138,6 +138,9 @@ fun main() {
     println("Execute: Creating a user.")
     val user = User("Soeren")
 
+    println("Execute: Creating a user.")
+    val user2 = User("Moxiboo")
+
     //Show user's list of favourites (empty)
     println("Execute: Printing user's favourite list (which should be empty)")
     user.showFavourites()
@@ -229,6 +232,11 @@ fun main() {
     println("Execute: Print Details for Wednesday (TV Series)")
     wednesday.printDetails()
 
+    //Print User Details for user and user2
+
+    user.printUserDetails()
+    println()
+    user2.printUserDetails()
 
     //list all movies/tv series actor has acted in.
 
