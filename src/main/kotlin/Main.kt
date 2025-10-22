@@ -257,8 +257,4 @@ fun main() {
     println("\nExecute: Show New Average Rating for movie 'Blade Runner'")
     println(bladerunner.printMediaAvgRatingDetails())
 
-
-    //list all movies/tv series actor has acted in.
-
-    //Update user rating of movie/TV series
 }
