@@ -1,10 +1,13 @@
 package main.moviedb.entities
-
-
 import main.moviedb.service.UserActions
 
 class User(val username: String) : UserActions {
+    val userId: Int
     val favourites: MutableList<Media> = mutableListOf()
+
+    init {
+        userId = generateNextId()
+    }
 
     override fun addFavorite(media: Media) {
         //Check if favorite is already on list; if not then add to list and confirm
@@ -32,6 +35,23 @@ class User(val username: String) : UserActions {
         } else {
             println("$username's favorite titles:")
             favourites.forEach { println("- ${it.title}") }
+        }
+    }
+
+    fun printUserDetails() {
+        println("User ID: $userId")
+        println("Username: $username")
+        println("Number of favourites: ${favourites.size}")
+    }
+
+    companion object {
+        private var nextId = 1001
+
+        private fun generateNextId(): Int {
+            if (nextId > 9999) {
+                throw IllegalStateException("Maximum number of users reached (9999).")
+            }
+            return nextId++
         }
     }
 }

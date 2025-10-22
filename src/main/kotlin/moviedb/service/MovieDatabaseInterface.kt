@@ -1,6 +1,8 @@
 package main.moviedb.service
 import main.moviedb.entities.Media
 
+//Generic MovieDB interface actions
+
 interface MovieDatabase {
     fun addMedia(media: Media)
     fun searchByTitle(searchTitle: String): List<Media>
