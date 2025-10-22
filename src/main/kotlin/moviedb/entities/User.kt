@@ -4,6 +4,7 @@ import main.moviedb.service.UserActions
 class User(val username: String) : UserActions {
     val userId: Int
     val favourites: MutableList<Media> = mutableListOf()
+    val userRatings: MutableMap<Media, Int> = mutableMapOf()
 
     init {
         userId = generateNextId()
@@ -42,6 +43,26 @@ class User(val username: String) : UserActions {
         println("User ID: $userId")
         println("Username: $username")
         println("Number of favourites: ${favourites.size}")
+    }
+
+    // Rate media (per user)
+    fun rateMedia(media: Media, rating: Int) {
+        require(rating in 1..5) { "Rating must be between 1 and 5." }
+
+        val previousRating = userRatings[media]
+        userRatings[media] = rating
+        media.addOrUpdateRating(this, rating)
+
+        if (previousRating == null) {
+            println("$username rated '${media.title}' with $rating stars.")
+        } else {
+            println("$username updated rating for '${media.title}' to $rating stars.")
+        }
+    }
+
+    // Get user's rating for a given media
+    fun getRatingForMedia(media: Media): Int? {
+        return userRatings[media]
     }
 
     companion object {

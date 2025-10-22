@@ -135,36 +135,36 @@ fun main() {
     rickandmorty.addSeason(1)
 
     //Create user(s)
-    println("Execute: Creating a user.")
-    val user = User("Soeren")
+    println("Execute: Creating user1.")
+    val user1 = User("Soeren")
 
-    println("Execute: Creating a user.")
+    println("Execute: Creating user2.")
     val user2 = User("Moxiboo")
 
     //Show user's list of favourites (empty)
     println("Execute: Printing user's favourite list (which should be empty)")
-    user.showFavourites()
+    user1.showFavourites()
 
     //Add media to user's list of favourites
     println("Execute: Adding media to user's favourite list")
-    user.addFavorite(bladerunner)
-    user.addFavorite(wednesday)
+    user1.addFavorite(bladerunner)
+    user1.addFavorite(wednesday)
 
     //Show user's list of favourites (not empty)
     println("Execute: Printing user's favourite list (now populated)")
-    user.showFavourites()
+    user1.showFavourites()
 
     //Remove media from user's list of favourites
     println("Execute: Removing a title from user's favourite list")
-    user.removeFavorite(wednesday)
+    user1.removeFavorite(wednesday)
 
     //Show user's list of favourites with one item removed
     println("Execute: Showing updated favourite list")
-    user.showFavourites()
+    user1.showFavourites()
 
     //Add existing media to user's list of favourites (should fail gracefully)
     println("Execute: Adding title to favourite's list that's already there. ")
-    user.addFavorite(bladerunner)
+    user1.addFavorite(bladerunner)
 
     //Show all titles currently in the database
     println("Execute: Showing all media titles currently in database")
@@ -234,9 +234,29 @@ fun main() {
 
     //Print User Details for user and user2
 
-    user.printUserDetails()
+    println("Execute: Show User Details")
+    user1.printUserDetails()
     println()
     user2.printUserDetails()
+
+    //Apply user rating to 'bladerunner' for user and user2
+
+    println("\nExecute: User1 and User2 adds rating to 'Blade Runner'")
+    user1.rateMedia(bladerunner, 5)
+    user2.rateMedia(bladerunner, 3)
+
+    //Show rating for 'bladerunner'
+    println("\nExecute: Show Average Rating for movie 'Blade Runner'")
+    println("Average rating for '${bladerunner.title}': ${bladerunner.getAverageRating()}")
+
+    //Update user rating for 'bladerunner'
+    println("\nExecute: User2 updates rating of 'Blade Runner'")
+    user2.rateMedia(bladerunner, 4)
+
+    //Show updated rating for 'bladerunner'
+    println("\nExecute: Show New Average Rating for movie 'Blade Runner'")
+    println(bladerunner.printMediaAvgRatingDetails())
+
 
     //list all movies/tv series actor has acted in.
 
