@@ -15,23 +15,27 @@ Project should include Media as a class with Movie and TVSeries as subclasses pl
         - Episode with Episode title, number and runtime
 - User class including Username, UserId and Favorites (list)
 
-<h3>Functionality to implement:</h3>
+<h3>Functionality implemented:</h3>
 Movie & Tv Series:
+- Add movie to database
+- Add TV series to database
 - Add a Season to a TV series
     - check Season doesn't already exist
 - Add an episode to a TV series season
-    - Check if season doesn't exist
+    - Check if season exist
     - check episode doesn't already exist
     - Store episode in correct order
 - Search for Movie or TV series by title
+    - fail gracefully if no matches found
 - Actor search: list all media titles actor has acted in.
+  - fail gracefully if no matches found
 - List all titles in the db
     - print distinction between Movie and TV series episode
 - List all titles in the db (sorted alphabetically)
 - List all episodes stored for a specific season
     - Check if season exists, if not then fail gracefully
 - Print details about media title
-- Media title now have user ratings based on average of all users' ratings
+- Media title have user ratings based on average of all users' ratings
 
 
 User:
@@ -40,7 +44,7 @@ User:
 - Remove title from user's favourite list
 - List all titles on a specific user's favourite list
 - Assign unique UserId to each created user
-- Update user rating of movie/TV series
+- Update user rating of movie/TV series (private)
 
 
 <h3>Structure:</h3>
@@ -61,15 +65,10 @@ MovieDB/
 │  └─ User Specific Actions (Interface)
 ```
 
-<br>
 TODO:
-
-1. userRating should not be public mutable. Wrap in a setter with validation.
-
-2. Add user reviews to each Media? 
-   3. Each user can submit a review, but only one review per person:
-   4. If no review exists for user, then add review 
-   5. If review exists for user, then warn of overwrite - confirm y/n:
-   6. y: overwrite existing review 
-   7. n: keep existing review
-                    
+- Add user reviews to each Media?
+  - Each user can submit a review, but only one review per person:
+    - If no review exists for user, then add review
+    - If review exists for user, then warn of overwrite - confirm y/n:
+      - y: overwrite existing review
+      - n: keep existing review
