@@ -51,7 +51,7 @@ class User(val username: String) : UserActions {
     }
 
 
-    //Set or update a rating (validated)
+    //Set or update a rating (validated) - triggers the (private) setter setUserRating
     fun rateMedia(media: Media, rating: Int) {
         setUserRating(media, rating)
     }
@@ -75,10 +75,14 @@ class User(val username: String) : UserActions {
     private fun setUserRating(media: Media, rating: Int) {
         require(rating in 1..5) { "Rating must be between 1 and 5." }
 
+        //Get previous user rating - ensure null is valid response
         val previousRating = _userRatings[media]
+        //Update the private user rating value _userRating to new rating
         _userRatings[media] = rating
+        //Add or update existing user rating value
         media.addOrUpdateRating(this, rating)
 
+        // Show user rating has succeeded - notify if user is adding a rating or updating existing rating
         if (previousRating == null) {
             println("$username rated '${media.title}' with $rating stars.")
         } else {
@@ -86,17 +90,14 @@ class User(val username: String) : UserActions {
         }
     }
 
-    // Get user's rating for a given media
+    // Get user's rating for a given media (public visible)
     fun getRatingForMedia(media: Media): Int? = _userRatings[media]
-    /**
-    fun getRatingForMedia(media: Media): Int? {
-        return userRatings[media]
-    }
-    */
+
 
     companion object {
-        private var nextId = 1001
+        private var nextId = 1001 //Initialise ID value for very first registered user
 
+        // For each following user, add 1 to ID and return value to a maximum of 9999 users.
         private fun generateNextId(): Int {
             if (nextId > 9999) {
                 throw IllegalStateException("Maximum number of users reached (9999).")

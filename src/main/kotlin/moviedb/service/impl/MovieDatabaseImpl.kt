@@ -52,6 +52,8 @@ class MovieDatabaseImpl : MovieDatabase {
         return matches
     }
 
+    //Call the searchByActor function with the 'actor' search string and print out any results.
+    //Include catch-all for searches without results
     override fun printSearchByActor(actor: String) {
         val found = searchByActor(actor)
         if (found.isEmpty()) {
@@ -71,6 +73,8 @@ class MovieDatabaseImpl : MovieDatabase {
         return mediaList.filter { it.title.contains(searchTitle, ignoreCase = true) }
     }
 
+    //Call the searchByTitle function with the 'title' search string and print out any results.
+    //Include catch-all for searches without results
     override fun printSearchByTitle(searchTitle: String) {
         val found = searchByTitle(searchTitle)
         if (found.isEmpty()) {
@@ -81,7 +85,7 @@ class MovieDatabaseImpl : MovieDatabase {
     }
 
     override fun updateRating(media: Media, rating: Double) {
-        //TODO: Check value of rating - should be 0<userRating=<10
+        //TODO: Check value of rating - should be 0<userRating=<5
         media.userRating = rating
         println("${media.title} rating updated to $rating")
     }

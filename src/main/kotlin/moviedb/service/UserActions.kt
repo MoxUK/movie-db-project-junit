@@ -6,4 +6,5 @@ interface UserActions {
     fun addFavorite(media: Media)
     fun removeFavorite(media: Media)
     fun showFavourites()
+    fun rateMedia()
 }
