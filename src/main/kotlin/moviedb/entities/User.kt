@@ -4,7 +4,12 @@ import main.moviedb.service.UserActions
 class User(val username: String) : UserActions {
     val userId: Int
     val favourites: MutableList<Media> = mutableListOf()
-    val userRatings: MutableMap<Media, Int> = mutableMapOf()
+    private val _userRatings: MutableMap<Media, Int> = mutableMapOf() //ensure user rating is private
+
+    // Public read-only view of user rating
+    val userRatings: Map<Media, Int>
+        get() = _userRatings.toMap() // returns a copy so it's read-only externally
+
 
     init {
         userId = generateNextId()
@@ -45,7 +50,13 @@ class User(val username: String) : UserActions {
         println("Number of favourites: ${favourites.size}")
     }
 
-    // Rate media (per user)
+
+    //Set or update a rating (validated)
+    fun rateMedia(media: Media, rating: Int) {
+        setUserRating(media, rating)
+    }
+
+    /** // Rate media (per user)
     fun rateMedia(media: Media, rating: Int) {
         require(rating in 1..5) { "Rating must be between 1 and 5." }
 
@@ -58,12 +69,30 @@ class User(val username: String) : UserActions {
         } else {
             println("$username updated rating for '${media.title}' to $rating stars.")
         }
+    }*/
+
+    // Private setter with validation
+    private fun setUserRating(media: Media, rating: Int) {
+        require(rating in 1..5) { "Rating must be between 1 and 5." }
+
+        val previousRating = _userRatings[media]
+        _userRatings[media] = rating
+        media.addOrUpdateRating(this, rating)
+
+        if (previousRating == null) {
+            println("$username rated '${media.title}' with $rating stars.")
+        } else {
+            println("$username updated rating for '${media.title}' to $rating stars.")
+        }
     }
 
     // Get user's rating for a given media
+    fun getRatingForMedia(media: Media): Int? = _userRatings[media]
+    /**
     fun getRatingForMedia(media: Media): Int? {
         return userRatings[media]
     }
+    */
 
     companion object {
         private var nextId = 1001

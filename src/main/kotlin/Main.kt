@@ -80,8 +80,8 @@ fun main() {
             1,
             59))
 
-    println("\nPress Enter to continue...")
-    readLine()  // waits until the user presses Enter
+    //println("\nPress Enter to continue...")
+    //readLine()  // waits until the user presses Enter
 
     // Add season 1 and season 2 to 'wednesday'
     println("Execute: Adding Season 1 and Season 2 to 'Wednesday")

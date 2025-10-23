@@ -63,14 +63,13 @@ MovieDB/
 
 <br>
 TODO:
-userRating should not be public mutable. Wrap in a setter with validation.
 
-----
+1. userRating should not be public mutable. Wrap in a setter with validation.
 
-Add user reviews to each Media?
-Each user can submit a review, but only one review per person:
-If no review exists for user, then add review
-If review exists for user, then warn of overwrite - confirm y/n:
-y: overwrite existing review
-n: keep existing review
+2. Add user reviews to each Media? 
+   3. Each user can submit a review, but only one review per person:
+   4. If no review exists for user, then add review 
+   5. If review exists for user, then warn of overwrite - confirm y/n:
+   6. y: overwrite existing review 
+   7. n: keep existing review
                     
