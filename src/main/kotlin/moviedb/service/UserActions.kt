@@ -1,6 +1,6 @@
 package main.moviedb.service
 
-import main.moviedb.entities.Media
+import moviedb.entity.Media
 
 interface UserActions {
     fun addFavorite(media: Media)

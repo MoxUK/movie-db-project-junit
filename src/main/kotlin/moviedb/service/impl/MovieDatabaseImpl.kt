@@ -1,9 +1,9 @@
 package main.moviedb.service.impl
 
-import main.moviedb.entities.Media
-import main.moviedb.entities.Movie
-import main.moviedb.entities.TVSeries
-import main.moviedb.service.MovieDatabase
+import moviedb.entity.Media
+import moviedb.entity.Movie
+import moviedb.entity.TVSeries
+import moviedb.service.MovieDatabase
 
 class MovieDatabaseImpl : MovieDatabase {
     private val mediaList: MutableList<Media> = mutableListOf()

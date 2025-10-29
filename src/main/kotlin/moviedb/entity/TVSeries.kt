@@ -1,8 +1,8 @@
-package main.moviedb.entities
+package moviedb.entity
 //TVSeries class should include Title, Pilot Episode Premier date, Synopsis, Genre, Actors, User Rating
 //Inherit Title, Synopsis, Genre and Actors from Media class
 
-import main.moviedb.service.TVSeriesActions
+import moviedb.service.TVSeriesActions
 
 class TVSeries(
     title: String,

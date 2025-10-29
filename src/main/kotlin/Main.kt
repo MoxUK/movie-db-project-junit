@@ -1,9 +1,9 @@
-import main.moviedb.service.MovieDatabase
+import moviedb.service.MovieDatabase
 import main.moviedb.service.impl.MovieDatabaseImpl
-import main.moviedb.entities.Movie
-import main.moviedb.entities.User
-import main.moviedb.entities.TVSeries
-import main.moviedb.entities.Episode
+import moviedb.entity.Movie
+import moviedb.entity.User
+import moviedb.entity.TVSeries
+import moviedb.entity.Episode
 
 
 
@@ -74,7 +74,7 @@ fun main() {
     db.addMedia(rickandmorty)
 
     //try to add episode for non-existing season to 'wednesday'
-    println("Execute: Adding episode for non-existing season to 'Wednesday'")
+    println("\nExecute: Adding episode for non-existing season to 'Wednesday'")
     wednesday.addEpisode(1,
         Episode("Wednesday's Child is Full of Woe",
             1,
@@ -84,12 +84,12 @@ fun main() {
     //readLine()  // waits until the user presses Enter
 
     // Add season 1 and season 2 to 'wednesday'
-    println("Execute: Adding Season 1 and Season 2 to 'Wednesday")
+    println("\nExecute: Adding Season 1 and Season 2 to 'Wednesday")
     wednesday.addSeason(1)
     wednesday.addSeason(2)
 
     //add episodes to 'wednesday'
-    println("Execute: Adding Episodes to 'Wednesday'")
+    println("\nExecute: Adding Episodes to 'Wednesday'")
     wednesday.addEpisode(1,
         Episode("Wednesday's Child is Full of Woe",
             1,
@@ -106,7 +106,7 @@ fun main() {
             60))
 
     // Add season 1 to 'rickandmorty'
-    println("Execute: Adding season and episoded to 'Rick and Morty'")
+    println("\nExecute: Adding season and episoded to 'Rick and Morty'")
     rickandmorty.addSeason(1)
 
     // Add episodes to 'rickandmorty'
@@ -131,51 +131,51 @@ fun main() {
             22))
 
     // Add season to 'rickandmorty' that already exists
-    println("Execute: Attempting to add existing season to 'Rick and Morty'")
+    println("\nExecute: Attempting to add existing season to 'Rick and Morty'")
     rickandmorty.addSeason(1)
 
     //Create user(s)
-    println("Execute: Creating user1.")
+    println("\nExecute: Creating user1.")
     val user1 = User("Soeren")
 
-    println("Execute: Creating user2.")
+    println("\nExecute: Creating user2.")
     val user2 = User("Lewis Hamilton")
 
     //Show user's list of favourites (empty)
-    println("Execute: Printing user's favourite list (which should be empty)")
+    println("\nExecute: Printing user's favourite list (which should be empty)")
     user1.showFavourites()
 
     //Add media to user's list of favourites
-    println("Execute: Adding media to user's favourite list")
+    println("\nExecute: Adding media to user's favourite list")
     user1.addFavorite(bladerunner)
     user1.addFavorite(wednesday)
 
     //Show user's list of favourites (not empty)
-    println("Execute: Printing user's favourite list (now populated)")
+    println("\nExecute: Printing user's favourite list (now populated)")
     user1.showFavourites()
 
     //Remove media from user's list of favourites
-    println("Execute: Removing a title from user's favourite list")
+    println("\nExecute: Removing a title from user's favourite list")
     user1.removeFavorite(wednesday)
 
     //Show user's list of favourites with one item removed
-    println("Execute: Showing updated favourite list")
+    println("\nExecute: Showing updated favourite list")
     user1.showFavourites()
 
     //Add existing media to user's list of favourites (should fail gracefully)
-    println("Execute: Adding title to favourite's list that's already there. ")
+    println("\nExecute: Adding title to favourite's list that's already there. ")
     user1.addFavorite(bladerunner)
 
     //Show all titles currently in the database
-    println("Execute: Showing all media titles currently in database")
+    println("\nExecute: Showing all media titles currently in database")
     db.listAllTitles()
 
     // List episodes in Season 1 of 'rickandmorty'
-    println("Execute: Printing all episodes in season 1 of 'Rick and Morty'")
+    println("\nExecute: Printing all episodes in season 1 of 'Rick and Morty'")
     rickandmorty.listEpisodes(1)
 
     // List episodes in non-existing Season 2 of 'rickandmorty'
-    println("Execute: Attempting to print episodes in a non-existing season of 'Rick and Morty'")
+    println("\nExecute: Attempting to print episodes in a non-existing season of 'Rick and Morty'")
     rickandmorty.listEpisodes(2)
 
     //Initialise search parameter for actor and title
@@ -183,7 +183,7 @@ fun main() {
     var mediaTitle = ""
 
     //Search for Movie or TV series by name
-    println("Execute: Searching for any media title containing 'ick'")
+    println("\nExecute: Searching for any media title containing 'ick'")
 
     mediaTitle = "ick"
     var foundMovies = db.searchByTitle(mediaTitle)
@@ -198,43 +198,43 @@ fun main() {
     }
 
     // Cleaner code with the printing result moved to the MovieDB Class
-    println("Execute: Searching for any media title containing 'Raiders'")
+    println("\nExecute: Searching for any media title containing 'Raiders'")
     mediaTitle = "Raiders"
     db.printSearchByTitle(mediaTitle)
 
     //Run search without results; rerun with results
 
-    println("Execute: Searching for any media title with Leonardo DiCaprio - no result should be found")
+    println("\nExecute: Searching for any media title with Leonardo DiCaprio - no result should be found")
     actorName = "Leonardo DiCaprio"
     db.printSearchByActor(actorName)
 
-    println("Execute: Searching for any media title with Harrison Ford")
+    println("\nExecute: Searching for any media title with Harrison Ford")
     actorName = "Harrison Ford"
     db.printSearchByActor(actorName)
 
-    println("Execute: Searching for any media title with Vin Diesel")
+    println("\nExecute: Searching for any media title with Vin Diesel")
     actorName = "Vin Diesel"
     db.printSearchByActor(actorName)
 
-    println("Execute: Searching for any media title with Jenny Ortega")
+    println("\nExecute: Searching for any media title with Jenny Ortega")
     actorName = "Jenny Ortega"
     db.printSearchByActor(actorName)
 
     //Show all titles currently in the database sorted alphabetically
-    println("Execute: Showing all media titles currently in database (sorted alphabetically)")
+    println("\nExecute: Showing all media titles currently in database (sorted alphabetically)")
     db.listAllMediaAlphabetically()
 
     //Print details for movie title
-    println("Execute: Print Details for Blade Runner (Movie)")
+    println("\nExecute: Print Details for Blade Runner (Movie)")
     bladerunner.printDetails()
 
     //Print details for TV Series
-    println("Execute: Print Details for Wednesday (TV Series)")
+    println("\nExecute: Print Details for Wednesday (TV Series)")
     wednesday.printDetails()
 
     //Print User Details for user and user2
 
-    println("Execute: Show User Details")
+    println("\nExecute: Show User Details")
     user1.printUserDetails()
     println()
     user2.printUserDetails()

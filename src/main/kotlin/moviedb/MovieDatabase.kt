@@ -1,4 +1,4 @@
-package main.moviedb
+package moviedb
 
 //Top level class
 //Functionality: Add Media, Search by title, Search by actor, Update media rating

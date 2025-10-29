@@ -1,4 +1,5 @@
-package main.moviedb.entities
+package moviedb.entity
+
 //Abstract base class, Media, for all media types.
 //Should include common variable for Movies and TV Series: Title, Synopsis, Genre, Actors, User Rating
 

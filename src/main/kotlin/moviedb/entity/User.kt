@@ -1,4 +1,4 @@
-package main.moviedb.entities
+package moviedb.entity
 import main.moviedb.service.UserActions
 
 
