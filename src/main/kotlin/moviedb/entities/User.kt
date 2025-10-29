@@ -1,7 +1,8 @@
 package main.moviedb.entities
 import main.moviedb.service.UserActions
 
-class User(val username: String) : UserActions {
+
+open class User(val username: String) : UserActions {
     val userId: Int
     val favourites: MutableList<Media> = mutableListOf()
     private val _userRatings: MutableMap<Media, Int> = mutableMapOf() //ensure user rating is private
@@ -44,7 +45,7 @@ class User(val username: String) : UserActions {
         }
     }
 
-    fun printUserDetails() {
+    override fun printUserDetails() {
         println("User ID: $userId")
         println("Username: $username")
         println("Number of favourites: ${favourites.size}")
@@ -52,7 +53,7 @@ class User(val username: String) : UserActions {
 
 
     //Set or update a rating (validated) - triggers the (private) setter setUserRating
-    fun rateMedia(media: Media, rating: Int) {
+    override fun rateMedia(media: Media, rating: Int) {
         setUserRating(media, rating)
     }
 

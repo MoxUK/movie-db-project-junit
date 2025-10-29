@@ -139,13 +139,7 @@ fun main() {
     val user1 = User("Soeren")
 
     println("Execute: Creating user2.")
-    val user2 = User("Moxiboo")
-
-    println("Execute: Creating user2.")
-    val user3 = User("Lewis Hamilton")
-
-    println("Execute: Creating user2.")
-    val user4 = User("Henry the 5th")
+    val user2 = User("Lewis Hamilton")
 
     //Show user's list of favourites (empty)
     println("Execute: Printing user's favourite list (which should be empty)")
@@ -245,9 +239,6 @@ fun main() {
     println()
     user2.printUserDetails()
     println()
-    user3.printUserDetails()
-    println()
-    user4.printUserDetails()
 
     //Apply user rating to 'bladerunner' for user and user2
 
