@@ -1,5 +1,5 @@
-package main.moviedb.service
-import main.moviedb.entities.Media
+package moviedb.service
+import moviedb.entity.Media
 
 //Generic MovieDB interface actions
 

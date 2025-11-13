@@ -1,6 +1,6 @@
-package main.moviedb.service
+package moviedb.service
 
-import main.moviedb.entities.Episode
+import moviedb.entity.Episode
 
 interface TVSeriesActions {
     fun addSeason(seasonNumber: Int)

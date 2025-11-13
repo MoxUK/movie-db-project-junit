@@ -13,24 +13,29 @@ Project should include Media as a class with Movie and TVSeries as subclasses pl
     - TVSeries class should include additional sub-categories
         - Season with Season Number
         - Episode with Episode title, number and runtime
-- User class including Username and Favorites (list)
+- User class including Username, UserId and Favorites (list)
 
-<h3>Functionality to implement:</h3>
+<h3>Functionality implemented:</h3>
 Movie & Tv Series:
+- Add movie to database
+- Add TV series to database
 - Add a Season to a TV series
     - check Season doesn't already exist
 - Add an episode to a TV series season
-    - Check if season doesn't exist
+    - Check if season exist
     - check episode doesn't already exist
     - Store episode in correct order
 - Search for Movie or TV series by title
+    - fail gracefully if no matches found
 - Actor search: list all media titles actor has acted in.
+  - fail gracefully if no matches found
 - List all titles in the db
     - print distinction between Movie and TV series episode
 - List all titles in the db (sorted alphabetically)
 - List all episodes stored for a specific season
     - Check if season exists, if not then fail gracefully
 - Print details about media title
+- Media title have user ratings based on average of all users' ratings
 
 
 User:
@@ -39,7 +44,7 @@ User:
 - Remove title from user's favourite list
 - List all titles on a specific user's favourite list
 - Assign unique UserId to each created user
-- Update user rating of movie/TV series (TODO!)
+- Update user rating of movie/TV series (private)
 
 
 <h3>Structure:</h3>
@@ -60,44 +65,10 @@ MovieDB/
 │  └─ User Specific Actions (Interface)
 ```
 
-<br>
 TODO:
-userRating should not be public mutable. Wrap in a setter with validation.
-Check userRating on item for multiple users - does it take latest value?
-Maybe create a list of user ratings - Calculate average and display on Media Object - how do I index the user rating so
-one user won't be able to submit multiple ratings
-
-Maybe use mapping for user with rating added to the list then convert list to doubles and calculate average.
-Important: Ignore any null values so these will not be included in the calculation:
-
-    val rating: MutableMap<Int, String?> = mutableMapOf(1 to "3.0", 2 to "4.5", 3 to "2.5", 4 to "", 5 to "")
-    println(rating) //Output: {1=3.0, 2=4.5, 3=2.5, 4=, 5=}
-
-    val valueOfRatingValues = mutableListOf<Double>()
-    
-    for (str in rating.values) {
-        if (str != null && str.isNotBlank()) {
-            val num = str.toDoubleOrNull()
-            if (num != null) {
-                valueOfRatingValues.add(num)
-            }
-        }
-    }
-    println(valueOfRatingValues) //Output: [3.0, 4.5, 2.5]
-    println(valueOfRatingValues.average()) //Output: 3.3333333333333335
-
-For Loop can be expressed as a lambda:
-
-    val valueOfRatingValues: List<Double> = rating.values.mapNotNull {
-    str -> str?.takeIf {it.isNotBlank() }?.toDoubleOrNull()
-    }
-
-----
-
-Add user reviews to each Media?
-Each user can submit a review, but only one review per person:
-If no review exists for user, then add review
-If review exists for user, then warn of overwrite - confirm y/n:
-y: overwrite existing review
-n: keep existing review
-                    
+- Add user reviews to each Media?
+  - Each user can submit a review, but only one review per person:
+    - If no review exists for user, then add review
+    - If review exists for user, then warn of overwrite - confirm y/n:
+      - y: overwrite existing review
+      - n: keep existing review

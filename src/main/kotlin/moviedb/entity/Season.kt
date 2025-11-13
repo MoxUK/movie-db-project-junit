@@ -1,4 +1,4 @@
-package main.moviedb.entities
+package moviedb.entity
 
 class Season(val seasonNumber: Int) {
     val episodes: MutableList<Episode> = mutableListOf()
